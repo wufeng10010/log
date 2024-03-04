@@ -100,3 +100,6 @@ public class EmpDaoA implements EmpDao {
     }
 }
 ```
+启动spring后在页面的展示效果
+<img width="1245" alt="image" src="https://github.com/wufeng10010/log/assets/131955051/73e6c656-3fdc-4b34-a62b-978b22e1dd6d">
+
