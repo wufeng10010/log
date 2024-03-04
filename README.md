@@ -13,6 +13,25 @@
     * IOC:将设计好的对象交给容器控制,由容器帮我们查找及注入依赖对象
     * DI:由容器动态的将某个依赖关系注入到组件之中   
 
+要把某个对象交给IOC容器管理，需要在对应的类加上如下注解之一：
+
+|注解|说明|位置|
+|:---|:---|:---|
+|@Component|声明bean的基础类|不属于一下三类时，用此注解|
+|@Controller|@Component的衍生注解|标注在控制器类上|
+|@Service|@Component的衍生注解|标注在业务类上|
+|@Repository|@Component的衍生注解|标注在数据访问类上|
+
+注意@SpringBootApplication具有包扫描作用，默认扫描当前包及其子包。
+
+依赖注入的注解
+
+* @Autowired:默认按类型自动注入，这是Spring框架提供的注解，与@Resource有所区分
+* 如果同类型的bean有多个：
+  * 使用@Primary注解，放在类上方
+  * @Autowired + @Qualifier("bean的名称")
+  * @Resource(name = "bean的名称")，这是JDK提供的注解，按名称注入
+
 controller层：控制层，接收前端发送的请求，对请求进行处理，并响应数据。
 ```java
 @RestController
