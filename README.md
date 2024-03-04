@@ -8,7 +8,7 @@
 在idea中创建springboot项目，并运行了一个web应用小demo，之后学习请求响应相关知识
 
 # 3.4
-···java
+```java
 @RestController
 public class EmpController {
     @Autowired //运行时，IOC容器会提供该类型的bean对象，并赋值给该变量--依赖注入
