@@ -13,6 +13,8 @@
 
     * IOC:将设计好的对象交给容器控制,由容器帮我们查找及注入依赖对象
     * DI:由容器动态的将某个依赖关系注入到组件之中   
+
+controller层
 ```java
 @RestController
 public class EmpController {
@@ -25,4 +27,58 @@ public class EmpController {
 
 //      3.响应数据
         return Result.success(empList);
+```
+service层
+```java
+//@Primary //想让哪个bean生效
+//@Component //将当前类交给IOC容器管理，成为IOC容器中的bean--控制反转
+@Service
+public class EmpServiceA implements EmpService {
+
+    @Autowired //运行时，IOC容器会提供该类型的bean对象，并赋值给该变量--依赖注入
+    private EmpDao empDao;
+    @Override
+    public List<Emp> listEmp(){
+        List<Emp> empList = empDao.listEmp();
+        //2.对数据进行转换处理
+        empList.stream().forEach(emp -> {
+//          2.1处理gender 1.男 2.女
+            String gender = emp.getGender();
+            if ("1".equals(gender)) {
+                emp.setGender("男");
+            } else if ("2".equals(gender)) {
+                emp.setGender("女");
+
+            }
+//          2.1处理job 1.讲师 2.班主任 3.就业指导 4.
+            String job = emp.getJob();
+            if ("1".equals(job)) {
+                emp.setJob("讲师");
+            } else if ("2".equals(job)) {
+                emp.setJob("班主任");
+            } else if ("3".equals(job)) {
+                emp.setJob("就业指导");
+            }
+
+        });
+        return empList;
+    }
+}
+
+```
+dao层
+```java
+//@Component //将当前类交给IOC容器管理，成为IOC容器中的bean --控制反转
+@Repository
+public class EmpDaoA implements EmpDao {
+    @Override
+    public List<Emp> listEmp(){
+        //加载并解析emp.xml
+        String file = this.getClass().getClassLoader().getResource("emp.xml").getFile();
+        System.out.println(file);
+        List<Emp> empList = XmlParserUtils.parse(file, Emp.class);
+
+        return empList;
+    }
+}
 ```
