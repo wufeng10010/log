@@ -109,7 +109,7 @@ public class EmpDaoA implements EmpDao {
 ### 好处：
 * 1.性能更高，通过预编译，可以在执行相似的sql指令时减少对sql的编译，如下图<img width="1013" alt="image" src="https://github.com/wufeng10010/log/assets/131955051/90e9a2c1-1e61-42c3-9546-ef0089695679">
 * 2.更安全，主要是防止SQL注入(通过操作输入的数据修改实现定义好的sql语句，以达到执行代码对服务器进行攻击的方法）
-如在登录界面输入一下密码也能实现登录成功的操作<img width="813" alt="image" src="https://github.com/wufeng10010/log/assets/131955051/445d102f-64c4-4b3d-ab7f-2f9113cac1dc">
+如在登录界面输入以下密码也能实现登录成功的操作<img width="813" alt="image" src="https://github.com/wufeng10010/log/assets/131955051/445d102f-64c4-4b3d-ab7f-2f9113cac1dc">
 
 这是由于在未使用预编译时，实际执行的sql语句为：
 ```sql
@@ -117,6 +117,7 @@ select count(*) from emp where username='zhangwuji 'and password='' or '1'='1';
 ```
 而使用预编译sql后，会形成占位符
 <img width="545" alt="image" src="https://github.com/wufeng10010/log/assets/131955051/42d83d67-efeb-41f7-a24b-0712c470ce39">
+
 ###使用方式
 利用参数占位符#{...},如根据id删除数据时：
 ```java
