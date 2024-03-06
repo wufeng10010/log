@@ -115,3 +115,21 @@ public class EmpDaoA implements EmpDao {
 ```sql
 select count(*) from emp where username='zhangwuji 'and password='' or '1'='1';
 ```
+而使用预编译sql后，会形成占位符
+<img width="545" alt="image" src="https://github.com/wufeng10010/log/assets/131955051/42d83d67-efeb-41f7-a24b-0712c470ce39">
+###使用方式
+利用参数占位符#{...},如根据id删除数据时：
+```java
+@Mapper
+public interface EmpMapper {
+    //根据id删除数据
+    @Delete("delete from emp where id = #{id}")
+//    public void delete(Integer id);
+    public int delete(Integer id);
+
+}
+```
+执行SQL时，会将#{id}替换为？,生成预编译SQL，然后自动设置参数值
+
+### 另一种参数占位符${...}
+拼接SQL，直接将参数拼接在SQL语句中，即会产生SQL注入问题。
