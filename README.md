@@ -108,4 +108,6 @@ public class EmpDaoA implements EmpDao {
 
 ### 好处：
 * 1.性能更高，通过预编译，可以在执行相似的sql指令时减少对sql的编译，如下图<img width="1013" alt="image" src="https://github.com/wufeng10010/log/assets/131955051/90e9a2c1-1e61-42c3-9546-ef0089695679">
-* 2.更安全，主要是防止SQL注入
+* 2.更安全，主要是防止SQL注入(通过操作输入的数据修改实现定义好的sql语句，以达到执行代码对服务器进行攻击的方法）
+如在登录界面输入一下密码也能实现登录成功的操作<img width="813" alt="image" src="https://github.com/wufeng10010/log/assets/131955051/445d102f-64c4-4b3d-ab7f-2f9113cac1dc">
+
