@@ -107,6 +107,5 @@ public class EmpDaoA implements EmpDao {
 预编译是指把要执行的sql语句先进行一个解析,解析语法以及确定查询范围还有查找的返回结果类型，就是确定了查询的方式，把命令和参数进行了分离，使用预编译的sql语句来进行查询直接进行执行计划，只需要替换掉参数部分.
 
 ### 好处：
-* 1.性能更高，通过预编译，可以在执行相似的sql指令时减少对sql的编译，如下图
-<img width="1013" alt="image" src="https://github.com/wufeng10010/log/assets/131955051/90e9a2c1-1e61-42c3-9546-ef0089695679">
+* 1.性能更高，通过预编译，可以在执行相似的sql指令时减少对sql的编译，如下图<img width="1013" alt="image" src="https://github.com/wufeng10010/log/assets/131955051/90e9a2c1-1e61-42c3-9546-ef0089695679">
 * 2.更安全，主要是防止SQL注入
