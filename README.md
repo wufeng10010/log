@@ -103,3 +103,10 @@ public class EmpDaoA implements EmpDao {
 启动spring后在页面的展示效果
 <img width="1245" alt="image" src="https://github.com/wufeng10010/log/assets/131955051/73e6c656-3fdc-4b34-a62b-978b22e1dd6d">
 
+# 3.4 mybatis基础操作(预编译SQL)
+预编译是指把要执行的sql语句先进行一个解析,解析语法以及确定查询范围还有查找的返回结果类型，就是确定了查询的方式，把命令和参数进行了分离，使用预编译的sql语句来进行查询直接进行执行计划，只需要替换掉参数部分.
+
+好处：
+* 1.性能更高
+* <img width="1013" alt="image" src="https://github.com/wufeng10010/log/assets/131955051/90e9a2c1-1e61-42c3-9546-ef0089695679">
+* 2.更安全，主要是防止SQL注入
