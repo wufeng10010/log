@@ -118,7 +118,7 @@ select count(*) from emp where username='zhangwuji 'and password='' or '1'='1';
 而使用预编译sql后，会形成占位符
 <img width="545" alt="image" src="https://github.com/wufeng10010/log/assets/131955051/42d83d67-efeb-41f7-a24b-0712c470ce39">
 
-###使用方式
+### 使用方式
 利用参数占位符#{...},如根据id删除数据时：
 ```java
 @Mapper
